@@ -2,7 +2,8 @@
 from flask import Flask, request, jsonify, send_from_directory
 from predict import predict_image, generate_description_gemini, generate_professional_pdf, save_result_to_txt
 import os
-
+import psutil
+print(psutil.virtual_memory())
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "uploads"
