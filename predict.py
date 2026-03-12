@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
 import google.generativeai as genai
-
+import google.genai as genai
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib import colors
@@ -45,7 +45,7 @@ def predict_image(image_path):
 
 
 def generate_description_gemini(predicted_class, confidence):
-    genai.configure(api_key="AIzaSyDcOqLzd-LfP0MR36aSF0steIBdI6IujNI")
+    genai.configure(api_key=os.environ.get("AIzaSyDcOqLzd-LfP0MR36aSF0steIBdI6IujNI"))
     model = genai.GenerativeModel("gemini-2.5-flash")
     prompt = f"""
      Le modèle CNN analyse des images de GRAINS DE BLÉ.
