@@ -45,7 +45,7 @@ def predict_image(image_path):
 
 
 def generate_description_gemini(predicted_class, confidence):
-    genai.configure(api_key="AIzaSyBjzo78lyzXmPqGkJqC9s1YYeCfsXLb1RM")
+    genai.configure(api_key="AIzaSyC62VPA3KjjSq7jeL4GkbAmAM6vKZMGKTM")
     model = genai.GenerativeModel("gemini-2.5-flash")
     prompt = f"""
      Le modèle CNN analyse des images de GRAINS DE BLÉ.
