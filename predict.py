@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
 import google.generativeai as genai
-
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib import colors
