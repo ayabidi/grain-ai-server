@@ -24,9 +24,10 @@ def predict_image(image_path):
         return x * hard_sigmoid(x)
 
     model = load_model(
-        'modelv34-2.h5',
-        custom_objects={'hard_swish': hard_swish}
-    )
+          "modelv34-2.h5",
+           custom_objects={"hard_swish": hard_swish},
+           compile=False
+)
 
     class_names = ["Grain normal", "the Fusarium & Shriveled", "The sprouted grain", "The moldy grain", "The grain attacked by pests", "The broken grain", "The black point grain", "The heated grain"]
 
