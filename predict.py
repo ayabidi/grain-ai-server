@@ -13,24 +13,34 @@ from reportlab.lib.pagesizes import A4
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 from datetime import datetime
+def hard_sigmoid(x):
+    return tf.keras.layers.ReLU(6.)(x + 3.) / 6.
 
+def hard_swish(x):
+    return x * hard_sigmoid(x)
 
-def predict_image(image_path):
+print("Loading AI model...")
 
-    def hard_sigmoid(x):
-        return tf.keras.layers.ReLU(6.)(x + 3.) / 6.
-
-    def hard_swish(x):
-        return x * hard_sigmoid(x)
-
-    model = load_model(
-          "modelv34-2.h5",
-           custom_objects={"hard_swish": hard_swish},
-           compile=False
+model = load_model(
+    "modelv34-2.h5",
+    custom_objects={"hard_swish": hard_swish},
+    compile=False
 )
 
-    class_names = ["Grain normal", "the Fusarium & Shriveled", "The sprouted grain", "The moldy grain", "The grain attacked by pests", "The broken grain", "The black point grain", "The heated grain"]
+print("Model loaded successfully")
 
+class_names = [
+"Grain normal",
+"the Fusarium & Shriveled",
+"The sprouted grain",
+"The moldy grain",
+"The grain attacked by pests",
+"The broken grain",
+"The black point grain",
+"The heated grain"
+]
+
+def predict_image(image_path):
     img = Image.open(image_path).convert("RGB")
     img = img.resize((224, 224))
     img_array = np.expand_dims(np.array(img), axis=0)
