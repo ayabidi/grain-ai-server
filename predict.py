@@ -2,9 +2,9 @@
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import os
 from tensorflow.keras.models import load_model
 import google.generativeai as genai
-import google.genai as genai
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib import colors
