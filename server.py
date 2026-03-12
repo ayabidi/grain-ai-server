@@ -45,8 +45,7 @@ def analyze():
 
     # 5️⃣ Retour JSON pour Flutter
     # Remplace l'IP par celle de ton PC sur le réseau local
-    ip_pc = "192.168.100.12"
-    pdf_url = f"http://{ip_pc}:5000/pdf/{pdf_filename}"
+    pdf_url = f"{request.url_root}pdf/{pdf_filename}"
 
 
     return jsonify({
