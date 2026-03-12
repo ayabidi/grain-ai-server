@@ -13,6 +13,8 @@ from reportlab.lib.pagesizes import A4
 from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 from datetime import datetime
+import psutil
+print(psutil.virtual_memory())
 def hard_sigmoid(x):
     return tf.keras.layers.ReLU(6.)(x + 3.) / 6.
 
